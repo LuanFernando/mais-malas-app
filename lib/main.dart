@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:mais_malas/comuns.dart';
 import 'package:mais_malas/routes.dart';
 
 void main() {
@@ -11,7 +12,7 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      title: '+Malas',
+      title: Comuns().tituloApp,
       initialRoute: '/',
       routes:
           getPages, //Aqui defino as routes ,chamando uma classe especifica de routes

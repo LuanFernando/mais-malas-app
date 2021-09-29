@@ -25,7 +25,7 @@ class ProdutoRepository {
         produtoModel.nomeProduto = item['nomeProduto'].toString();
         produtoModel.descricaoProduto = item['descricaoProduto'].toString();
         produtoModel.precoProduto = item['precoProduto'].toString();
-        produtoModel.precoProduto = item['dataAtualizacao'].toString();
+        produtoModel.dataAtualizacao = item['dataAtualizacao'].toString();
 
         //Adicionando o produto a lista
         listaProdutos.add(produtoModel);

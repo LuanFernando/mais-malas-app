@@ -1,6 +1,9 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mais_malas/models/produtoModel.dart';
 import 'package:mais_malas/repositorys/produtoRepository.dart';
+
+import '../comuns.dart';
 
 class ProdutoController extends GetxController {
   //Nova instancia de produtoRepository
@@ -14,9 +17,31 @@ class ProdutoController extends GetxController {
     return _produtoRepository.listarProdutos().then((value) => value);
   }
 
-  //Redireciona rota
-  redirecionaRota(var rota, ProdutoModel produtoModel) {
+  //Redireciona para rota ver mais.
+  redirecionaVerMais(var rota, ProdutoModel produtoModel) {
     //Com Get.toNamed o gerenciador de estado procura por esta rota na classe routes e redireciona.
-    Get.toNamed('/${rota}', arguments: {'produto': produtoModel});
+    Get.toNamed('/${rota.toString()}', arguments: {'produto': produtoModel});
+  }
+
+  //Redireciona para rota carrinho de compras
+  redirecionaCarrinhoCompras() {
+    Get.toNamed("/carrinhocompras");
+  }
+
+  //Metodo para exibir mensagem do button de ajuda
+  mensagemButtonAjuda() {
+    //Abaixo cria o widget de alertDialog
+    Get.dialog(AlertDialog(
+      title: Text("Ajuda"),
+      content: Text(Comuns().mensagemAjuda),
+      actions: [
+        IconButton(
+            onPressed: () {
+              //Abaixo fecha o widget
+              Get.back();
+            },
+            icon: Icon(Icons.close, color: Colors.red))
+      ],
+    ));
   }
 }

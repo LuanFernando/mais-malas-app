@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:mais_malas/comuns.dart';
 import 'package:mais_malas/controllers/produtoController.dart';
 import 'package:mais_malas/models/produtoModel.dart';
 
@@ -19,13 +20,23 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         brightness: Brightness.dark,
-        title: Text('+Malas',
+        title: Text(Comuns().tituloApp,
             style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
         centerTitle: true,
         backgroundColor: Colors.black,
         actions: [
+          //TO DO: Redirecionar para a tela que apresenta todos os produtos já comprados.
           IconButton(
-              onPressed: () {},
+              onPressed: () {
+                //Chama o metodo para redirecionar rota para pagina carrinho de compras
+                controller.redirecionaCarrinhoCompras();
+              },
+              icon: Icon(Icons.shopping_cart_outlined)),
+          IconButton(
+              onPressed: () {
+                //Chama metodo de exibir mensagem de ajuda.
+                controller.mensagemButtonAjuda();
+              },
               icon: Icon(
                 Icons.help,
                 color: Colors.white,
@@ -52,7 +63,7 @@ class _HomePageState extends State<HomePage> {
                     children: [
                       Text('Aguarde a carregar..',
                           style: TextStyle(fontWeight: FontWeight.bold)),
-                      SizedBox(height: 16.0),
+                      SizedBox(height: 40.0),
                       CircularProgressIndicator(color: Colors.black),
                     ]);
               }
@@ -81,67 +92,72 @@ class _HomePageState extends State<HomePage> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 //IdProduto
-                Text(produtoModel.idProduto.toString(),
+                Text("id: " + produtoModel.idProduto.toString(),
                     style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
                         fontSize: 16.0)),
                 SizedBox(width: 8.0),
                 //NomeProduto
-                Text(produtoModel.nomeProduto.toString(),
+                Text("Nome: " + produtoModel.nomeProduto.toString(),
                     style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
                         fontSize: 16.0))
               ],
             ),
-            SizedBox(
-              height: 8.0,
-            ),
+            //Espaçamento entre  row
+            SizedBox(height: 8.0),
             //Row com Foto ,descricaoProduto
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
+                //Espaçamento lateral
                 SizedBox(width: 8.0),
                 //Campo de foto para o produto
                 Container(
                   width: 90.0,
                   height: 80.0,
-                  color: Colors.white,
+                  color: Colors.black,
+                  //Abaixo centralizando uma imagen
                   child: Center(
-                      child: Icon(
-                    Icons.photo,
-                    size: 40.0,
+                      child: Image.asset(
+                    "assets/imagens/suitcase.png",
+                    fit: BoxFit.cover,
                   )),
                 ),
                 //Campo de foto para o produto final
-                SizedBox(width: 8.0),
 
-                SizedBox(
-                  width: 16.0,
-                ),
+                //Espaçamento entre foto e texto
+                SizedBox(width: 24.0),
+
                 //Coluna 2
                 Column(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
-                    //Descrição do produto
                     Text(
                       produtoModel.descricaoProduto.toString(),
                       style: TextStyle(color: Colors.white),
                     ),
                     SizedBox(
-                      height: 16.0,
+                      height: 8.0,
                     ),
+                    //Descrição do produto
                     TextButton(
                         onPressed: () {
                           //Chama a controller e redireciona para page ver_mais
-                          controller.redirecionaRota('vermais', produtoModel);
+                          controller.redirecionaVerMais(
+                              'vermais', produtoModel);
                         },
-                        child: Text(
-                          "Ver mais",
-                          style: TextStyle(fontSize: 16.0),
-                        )),
+                        //Row para texto e icon
+                        child: Row(children: [
+                          //Chamada de ação texto
+                          Text("Ver mais", style: TextStyle(fontSize: 16.0)),
+                          //Icon
+                          Icon(Icons.navigate_next)
+                        ])),
+                    //Row para texto e icon final),
                   ],
                 )
                 //Coluna 2 final
