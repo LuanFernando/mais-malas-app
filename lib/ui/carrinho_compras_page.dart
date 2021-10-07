@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mais_malas/controllers/compraController.dart';
 import 'package:mais_malas/models/compraModel.dart';
+import 'package:mais_malas/ui/widgets_uteis/circular_progress_indicator_person.dart';
 
 class CarrinhoComprasPage extends StatefulWidget {
   const CarrinhoComprasPage({Key? key}) : super(key: key);
@@ -37,22 +38,8 @@ class _CarrinhoComprasPageState extends State<CarrinhoComprasPage> {
                       return _buildCardComprados(listaCompra[index]);
                     });
               } else {
-                return Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Text(
-                      'Aguarde a carregar',
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                    SizedBox(
-                      height: 40.0,
-                    ),
-                    CircularProgressIndicator(
-                      color: Colors.black,
-                    ),
-                  ],
-                );
+                //Chamando o widget de circularProgress personalizado
+                return buildCircularProgressIndicatorPerson();
               }
             }),
       ),

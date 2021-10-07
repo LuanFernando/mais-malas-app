@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:mais_malas/comuns.dart';
 import 'package:mais_malas/controllers/produtoController.dart';
 import 'package:mais_malas/models/produtoModel.dart';
+import 'package:mais_malas/ui/widgets_uteis/circular_progress_indicator_person.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key? key}) : super(key: key);
@@ -58,14 +59,8 @@ class _HomePageState extends State<HomePage> {
                   },
                 );
               } else {
-                return Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text('Aguarde a carregar..',
-                          style: TextStyle(fontWeight: FontWeight.bold)),
-                      SizedBox(height: 40.0),
-                      CircularProgressIndicator(color: Colors.black),
-                    ]);
+                //Chamando o widget circularProgress personalizado.
+                return buildCircularProgressIndicatorPerson();
               }
             }),
       ),
