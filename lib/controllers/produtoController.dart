@@ -28,6 +28,11 @@ class ProdutoController extends GetxController {
     Get.toNamed("/carrinhocompras");
   }
 
+  //Redireciona para rota cadastrar produto
+  redirecionaCadastrarProduto() {
+    Get.toNamed('/cadastrarproduto');
+  }
+
   //Metodo para exibir mensagem do button de ajuda
   mensagemButtonAjuda() {
     //Abaixo cria o widget de alertDialog

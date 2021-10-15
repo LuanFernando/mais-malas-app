@@ -13,6 +13,14 @@ class App extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: Comuns().tituloApp,
+      theme: ThemeData(
+          primaryColor: Colors.black,
+          accentColor: Colors.blue,
+          //Colando um tema Global para os Widget ElevatedButton
+          elevatedButtonTheme: ElevatedButtonThemeData(
+              style: TextButton.styleFrom(
+            backgroundColor: Colors.black,
+          ))),
       initialRoute: '/',
       routes:
           getPages, //Aqui defino as routes ,chamando uma classe especifica de routes

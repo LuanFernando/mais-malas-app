@@ -32,7 +32,10 @@ class _HomePageState extends State<HomePage> {
                 //Chama o metodo para redirecionar rota para pagina carrinho de compras
                 controller.redirecionaCarrinhoCompras();
               },
-              icon: Icon(Icons.shopping_cart_outlined)),
+              icon: Icon(
+                Icons.shopping_cart_outlined,
+                color: Colors.white,
+              )),
           IconButton(
               onPressed: () {
                 //Chama metodo de exibir mensagem de ajuda.
@@ -63,6 +66,19 @@ class _HomePageState extends State<HomePage> {
                 return buildCircularProgressIndicatorPerson();
               }
             }),
+      ),
+      //FloatButton para redirecionar para tela de cadastrar mala.
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.black,
+        onPressed: () {
+          //Chamando o metodo para redirecionar para o cadastrar produto.
+          controller.redirecionaCadastrarProduto();
+        },
+        child: Image.asset(
+          "assets/imagens/mala-de-viagem.png",
+          color: Colors.white,
+          width: double.infinity,
+        ),
       ),
     );
   }

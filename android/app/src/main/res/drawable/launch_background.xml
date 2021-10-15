@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Modifique este arquivo para personalizar sua tela inicial -->
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-    <!--<item android:drawable="@android:color/white" /> -->
-    <item android:drawable="@drawable/gradient_background"/>
+    <item android:drawable="@android:color/white" /> 
+    <!--<item android:drawable="@drawable/gradient_background"/>-->
 
     <!-- Você pode inserir seus próprios recursos de imagem aqu -->
      <item>
