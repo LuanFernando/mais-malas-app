@@ -1,9 +1,10 @@
 import 'dart:convert';
-
+import 'package:mais_malas/imports.dart';
 import 'package:http/http.dart' as http;
-import 'package:mais_malas/models/compraModel.dart';
 
 class CompraRepository {
+  //Capturando a url base e juntando com o caminho que desejamos ir.
+  var urlCompras = dotenv.env['URLBASE'].toString() + 'compras.php';
   //Metodo para salvar a compra
   Future<bool> salvarCompra(var dadosCompra) async {
     //Dados para enviar via post
@@ -13,9 +14,8 @@ class CompraRepository {
       'precoProduto': dadosCompra['precoProduto'],
     };
 
-    http.Response response = await http.post(
-        Uri.parse("https://maismalas.000webhostapp.com/api/compras.php"),
-        body: _body);
+    http.Response response =
+        await http.post(Uri.parse(urlCompras), body: _body);
     //IF ELSE verificando se deu certo a inserção da compra
     if (response.statusCode == 200) {
       return true;
@@ -29,8 +29,7 @@ class CompraRepository {
 
   //Listar todas as compras salvas no banco de dados
   Future<List<CompraModel>> listarTodasCompras() async {
-    http.Response response = await http
-        .get(Uri.parse("https://maismalas.000webhostapp.com/api/compras.php"));
+    http.Response response = await http.get(Uri.parse(urlCompras));
     if (response.statusCode == 200) {
       //Nova instancia de compraModel
       CompraModel compraModel;

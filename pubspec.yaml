@@ -29,6 +29,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   http: ^0.13.3
   get: ^4.3.8
+  flutter_dotenv: ^5.0.2
 
 dev_dependencies:
   flutter_test:
@@ -48,6 +49,7 @@ flutter:
   assets:
     - assets/icons/
     - assets/imagens/
+    - .env
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

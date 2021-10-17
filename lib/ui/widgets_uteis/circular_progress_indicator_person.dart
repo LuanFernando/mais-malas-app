@@ -1,5 +1,4 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
+import 'package:mais_malas/imports.dart';
 
 /*
 * Widget CircularProgressIndicator Personalizado

@@ -1,13 +1,14 @@
 import 'dart:convert';
-
-import 'package:mais_malas/models/produtoModel.dart';
+import 'package:mais_malas/imports.dart';
 import 'package:http/http.dart' as http;
 
 class ProdutoRepository {
+  //Capturando a url base e juntando com o caminho que desejamos ir.
+  var urlProdutos = dotenv.env['URLBASE'].toString() + 'produtos.php';
+
   Future<List<ProdutoModel>> listarProdutos() async {
     //Fazendo uma request
-    http.Response response = await http
-        .get(Uri.parse('https://maismalas.000webhostapp.com/api/produtos.php'));
+    http.Response response = await http.get(Uri.parse(urlProdutos));
 
     //IF ELSE para verificar o statusCode
     if (response.statusCode == 200) {

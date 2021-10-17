@@ -1,8 +1,4 @@
-import 'package:flutter/cupertino.dart';
-import 'package:get/get.dart';
-import 'package:mais_malas/repositorys/compraRepository.dart';
-
-import '../comuns.dart';
+import 'package:mais_malas/imports.dart';
 
 class CompraController extends GetxController {
   //Nova instancia de repository compra

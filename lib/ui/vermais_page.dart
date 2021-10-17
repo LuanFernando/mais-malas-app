@@ -1,9 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:mais_malas/controllers/compraController.dart';
-import 'package:mais_malas/controllers/produtoController.dart';
-
-import '../comuns.dart';
+import 'package:mais_malas/imports.dart';
 
 class VerMaisPage extends StatefulWidget {
   VerMaisPage({

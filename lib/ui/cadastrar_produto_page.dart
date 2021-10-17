@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:mais_malas/imports.dart';
 
 class CadastrarProdutoPage extends StatefulWidget {
   const CadastrarProdutoPage({Key? key}) : super(key: key);

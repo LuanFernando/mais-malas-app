@@ -1,9 +1,8 @@
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:mais_malas/comuns.dart';
-import 'package:mais_malas/routes.dart';
+import 'package:mais_malas/imports.dart';
 
-void main() {
+Future main() async {
+  //Iniciando arquivo de variveis de ambiente
+  await dotenv.load(fileName: '.env');
   runApp(App());
 }
 

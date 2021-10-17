@@ -1,8 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:mais_malas/controllers/compraController.dart';
-import 'package:mais_malas/models/compraModel.dart';
-import 'package:mais_malas/ui/widgets_uteis/circular_progress_indicator_person.dart';
+import 'package:mais_malas/imports.dart';
 
 class CarrinhoComprasPage extends StatefulWidget {
   const CarrinhoComprasPage({Key? key}) : super(key: key);

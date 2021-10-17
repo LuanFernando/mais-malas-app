@@ -1,9 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:mais_malas/models/produtoModel.dart';
-import 'package:mais_malas/repositorys/produtoRepository.dart';
-
-import '../comuns.dart';
+import 'package:mais_malas/imports.dart';
 
 class ProdutoController extends GetxController {
   //Nova instancia de produtoRepository
