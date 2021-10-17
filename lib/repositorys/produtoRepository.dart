@@ -41,4 +41,31 @@ class ProdutoRepository {
       return [];
     }
   }
+
+  //Metodo para salvar os dados de um produto no banco de dados.
+  Future<int> cadastrarProduto(
+      var nomeProduto, var descricaoProduto, var precoProduto) async {
+    //Juntando todos os dados que serão cadastrados em um Map
+    Map<String, dynamic> _body = {
+      'input-acao': 'cadastrar_produto',
+      'nomeProduto': nomeProduto.toString(),
+      'descricaoProduto': descricaoProduto.toString(),
+      'precoProduto': precoProduto.toString()
+    };
+
+    print(_body);
+
+    http.Response response =
+        await http.post(Uri.parse(urlProdutos), body: _body);
+
+    if (response.statusCode == 200) {
+      var data = response.body;
+      //print(data);
+      //Se der certo o cadastro retorna 1 , caso contrario retorna 0
+      return (data.toString() == 'true' ? 1 : 0);
+    } else {
+      //Retorna 0 quando não for cadastrado
+      return 0;
+    }
+  }
 }

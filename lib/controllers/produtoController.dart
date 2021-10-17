@@ -4,6 +4,17 @@ class ProdutoController extends GetxController {
   //Nova instancia de produtoRepository
   final ProdutoRepository _produtoRepository = ProdutoRepository();
 
+  //TextEditingController
+  TextEditingController nomeProduto = new TextEditingController();
+  TextEditingController descricaoProduto = new TextEditingController();
+  TextEditingController precoProduto = new TextEditingController();
+
+  //FormKey chave do formulario cadastrar produto
+  final GlobalKey<FormState> formKey = new GlobalKey<FormState>();
+
+  //Variavel usada para controlar o loading do button Cadastrar
+  RxBool isLoading = false.obs;
+
   //Variaveis auxiliares
   Rx<ProdutoModel> produtoM = ProdutoModel().obs;
 
@@ -43,5 +54,55 @@ class ProdutoController extends GetxController {
             icon: Icon(Icons.close, color: Colors.red))
       ],
     ));
+  }
+
+  //Metodo para validar os campos do formulario e depois chamar o metodo cadastrar produto
+  validarFormulario() {
+    if (formKey.currentState!.validate()) {
+      cadastrarProduto();
+    }
+  }
+
+  //Metodo para cadastrar os produtos.
+  //Devemos passar o apenas o nome do produto, descrição do produto e o preço do produto.
+  cadastrarProduto() {
+    //Mudar estado da varivel isLoading
+    isloadingCadastrar();
+    _produtoRepository
+        .cadastrarProduto(
+            nomeProduto.text, descricaoProduto.text, precoProduto.text)
+        .then((value) {
+      //Mudar estado da varivel isLoading
+      isloadingCadastrar();
+      //Limpar campos do formulario
+      limparCamposFormulario();
+      //Exibir mensagem de retorno
+      exibirMensagemRetorno(value);
+    });
+  }
+
+  //Exibir mensagem de retorno
+  exibirMensagemRetorno(int retorno) {
+    if (retorno == 1) {
+      Get.snackbar('Produtos', 'Produto cadastrado com sucesso.',
+          backgroundColor: Colors.white, colorText: Colors.black);
+    } else {
+      Get.snackbar('Produtos', 'Produto não cadastrado!!.',
+          backgroundColor: Colors.white, colorText: Colors.black);
+    }
+  }
+
+  //Limpar campos TextEditController
+  limparCamposFormulario() {
+    nomeProduto.clear();
+    descricaoProduto.clear();
+    precoProduto.clear();
+  }
+
+  //Metodo para isLoading mudar os estado da variavel
+  isloadingCadastrar() {
+    return (isLoading.value == false
+        ? isLoading.value = true
+        : isLoading.value = false);
   }
 }
