@@ -24,7 +24,17 @@ class _HomePageState extends State<HomePage> {
           //Chama metodo para redirecionar para upload
           IconButton(
               onPressed: controller.redirecionaUploadImage,
-              icon: Icon(Icons.add_a_photo)),
+              icon: Icon(
+                Icons.add_a_photo,
+                color: Colors.green,
+              )),
+          //Chama metodo para redirecionar para meus uploads
+          IconButton(
+              onPressed: controller.redirecionaMeusUploads,
+              icon: Icon(
+                Icons.photo_album,
+                color: Colors.blue,
+              )),
           //TO DO: Redirecionar para a tela que apresenta todos os produtos já comprados.
           IconButton(
               //Chama o metodo para redirecionar rota para pagina carrinho de compras

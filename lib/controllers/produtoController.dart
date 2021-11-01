@@ -39,6 +39,11 @@ class ProdutoController extends GetxController {
     Get.toNamed("/uploads");
   }
 
+  //Redireciona para rota meus uploads
+  redirecionaMeusUploads() {
+    Get.toNamed("/meusuploads");
+  }
+
   //Redireciona para rota cadastrar produto
   redirecionaCadastrarProduto() {
     Get.toNamed('/cadastrarproduto');

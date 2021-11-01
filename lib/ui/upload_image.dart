@@ -115,8 +115,16 @@ class _UploadImagenState extends State<UploadImagen> {
         /// fields[] usados para key comuns (Texto,Número ..etc).
         response.fields['name'] = images[i].name.toString();
 
+        ///Removendo as extensões das imagens antes de enviar
+
+        /*String caminho = (path.path.split('.').last == "jpg"
+            ? path.path.replaceAll(".jpg", "")
+            : path.path.replaceAll(".png", ""));
+        print(caminho);*/
+
         /// files.add para enviar arquivos
         /// Sempre informar a : KEY, PATH e CONTENTTYPE
+        /// Não está dando certo enviar jpeg
         response.files.add(await http.MultipartFile.fromPath(
           'image',
           path.path,
