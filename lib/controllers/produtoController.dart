@@ -34,6 +34,11 @@ class ProdutoController extends GetxController {
     Get.toNamed("/carrinhocompras");
   }
 
+  //Redireciona para rota upload image
+  redirecionaUploadImage() {
+    Get.toNamed("/uploads");
+  }
+
   //Redireciona para rota cadastrar produto
   redirecionaCadastrarProduto() {
     Get.toNamed('/cadastrarproduto');

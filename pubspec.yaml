@@ -30,6 +30,12 @@ dependencies:
   http: ^0.13.3
   get: ^4.3.8
   flutter_dotenv: ^5.0.2
+  multi_image_picker2: ^5.0.2
+  http_parser: ^4.0.0
+  flutter_easyloading: ^3.0.3
+  path_provider: ^2.0.2
+  image_picker:
+  dio: ^4.0.1
 
 dev_dependencies:
   flutter_test:

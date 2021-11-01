@@ -14,3 +14,4 @@ export 'package:mais_malas/repositorys/produtoRepository.dart';
 export 'package:mais_malas/controllers/compraController.dart';
 export 'package:mais_malas/controllers/produtoController.dart';
 export 'package:mais_malas/ui/widgets_uteis/circular_progress_indicator_person.dart';
+export 'package:mais_malas/ui/upload_image.dart';

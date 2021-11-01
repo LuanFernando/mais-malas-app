@@ -18,24 +18,24 @@ class _HomePageState extends State<HomePage> {
         brightness: Brightness.dark,
         title: Text(Comuns().tituloApp,
             style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
-        centerTitle: true,
+        centerTitle: false,
         backgroundColor: Colors.black,
         actions: [
+          //Chama metodo para redirecionar para upload
+          IconButton(
+              onPressed: controller.redirecionaUploadImage,
+              icon: Icon(Icons.add_a_photo)),
           //TO DO: Redirecionar para a tela que apresenta todos os produtos já comprados.
           IconButton(
-              onPressed: () {
-                //Chama o metodo para redirecionar rota para pagina carrinho de compras
-                controller.redirecionaCarrinhoCompras();
-              },
+              //Chama o metodo para redirecionar rota para pagina carrinho de compras
+              onPressed: controller.redirecionaCarrinhoCompras,
               icon: Icon(
                 Icons.shopping_cart_outlined,
                 color: Colors.white,
               )),
           IconButton(
-              onPressed: () {
-                //Chama metodo de exibir mensagem de ajuda.
-                controller.mensagemButtonAjuda();
-              },
+              //Chama metodo de exibir mensagem de ajuda.
+              onPressed: controller.mensagemButtonAjuda,
               icon: Icon(
                 Icons.help,
                 color: Colors.white,

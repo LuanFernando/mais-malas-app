@@ -37,6 +37,7 @@ class ProdutoRepository {
       if (response.statusCode == 500) {
         print("Servidor offline");
       }
+      print(response.body);
       print("Caso de erro irá cair neste else");
       return [];
     }

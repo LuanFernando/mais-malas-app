@@ -6,4 +6,5 @@ Map<String, WidgetBuilder> getPages = {
   '/vermais': (context) => VerMaisPage(),
   '/carrinhocompras': (context) => CarrinhoComprasPage(),
   '/cadastrarproduto': (context) => CadastrarProdutoPage(),
+  '/uploads': (context) => UploadImagen(),
 };
