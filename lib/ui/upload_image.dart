@@ -112,15 +112,13 @@ class _UploadImagenState extends State<UploadImagen> {
         var response = http.MultipartRequest(
             "POST", Uri.parse("$url" + "upload_image.php"));
 
+        ///Pegando a quantidade de caracter para remove os ultimos a extenção do arquivo
+        ///NameImagen irá recerber o nome sem a extenção da imagen
+        int num = images[i].name.toString().length;
+        String nameImagen = images[i].name.toString().substring(0, (num - 4));
+
         /// fields[] usados para key comuns (Texto,Número ..etc).
-        response.fields['name'] = images[i].name.toString();
-
-        ///Removendo as extensões das imagens antes de enviar
-
-        /*String caminho = (path.path.split('.').last == "jpg"
-            ? path.path.replaceAll(".jpg", "")
-            : path.path.replaceAll(".png", ""));
-        print(caminho);*/
+        response.fields['name'] = nameImagen;
 
         /// files.add para enviar arquivos
         /// Sempre informar a : KEY, PATH e CONTENTTYPE

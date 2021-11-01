@@ -28,6 +28,8 @@ class _MeusUploadsState extends State<MeusUploads> {
               List<ImageModel> imagens = snapshot.data;
               return GridView.count(
                 crossAxisCount: 3,
+                mainAxisSpacing: 5,
+                crossAxisSpacing: 5,
                 children: List.generate(imagens.length, (index) {
                   return Image.network(
                     urlBase + imagens[index].diretorioImagen.toString(),
